@@ -12,8 +12,6 @@ const backgroundImage = require("./assets/nature.jpg");
 
 const GameBoard = () => {
   const { width, height } = useContext(DimensionsContext);
-  console.log("width: ", width);
-  console.log("height: ", height);
 
   const [running, setRunning] = useState(true);
   const [score, setScore] = useState(0);
