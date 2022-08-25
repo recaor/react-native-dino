@@ -7,12 +7,12 @@ import React, {
 } from "react";
 import { Dimensions } from "react-native";
 
+const window = Dimensions.get("window");
+
 type DimensionsContextType = {
   width: number;
   height: number;
 };
-
-const window = Dimensions.get("window");
 
 export const DimensionsContext = createContext<DimensionsContextType>({
   width: window.width,

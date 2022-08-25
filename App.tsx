@@ -4,8 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import DimensionsProvider from "./contexts/DimensionsContext";
-import Dashboard from "./components/Dashboard";
-import GameBoard from "./components/GameBoard";
+import Dashboard from "./screens/Dashboard";
+import GameBoard from "./screens/GameBoard";
 
 const Stack = createNativeStackNavigator();
 
