@@ -17,7 +17,11 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen name="GameBoard" component={GameBoard} />
+        <Stack.Screen
+          name="GameBoard"
+          component={GameBoard}
+          options={{ orientation: "landscape" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
