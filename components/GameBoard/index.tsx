@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 
 const GameBoard = () => {
-  return <Text>Welcome Player</Text>;
+  return <Text>Hello World</Text>;
 };
 
 export default GameBoard;

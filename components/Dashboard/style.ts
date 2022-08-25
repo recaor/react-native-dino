@@ -1,14 +1,6 @@
 import { StyleSheet } from "react-native";
-import { width, height } from "../../helpers/dimentions";
 
 const styles = StyleSheet.create({
-  background: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    width: width,
-    height: height,
-  },
   startButton: {
     alignItems: "center",
     justifyContent: "center",
