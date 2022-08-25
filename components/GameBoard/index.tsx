@@ -1,7 +1,15 @@
+import { useContext } from "react";
 import { Text } from "react-native";
+import { DimensionsContext } from "../../contexts/DimensionsContext";
 
 const GameBoard = () => {
-  return <Text>Hello World</Text>;
+  const { width, height } = useContext(DimensionsContext);
+
+  return (
+    <Text>
+      {width} : {height}
+    </Text>
+  );
 };
 
 export default GameBoard;

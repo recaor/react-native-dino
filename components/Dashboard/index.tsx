@@ -31,9 +31,6 @@ const Dashboard = ({ navigation }) => {
         style={styles.startButton}
         onPress={toggleOrientation}
       />
-      <Text>
-        {width} : {height}
-      </Text>
     </View>
   );
 };
