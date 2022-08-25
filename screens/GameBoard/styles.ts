@@ -12,18 +12,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  score: {
-    color: "#ffffff",
-    fontSize: 50,
-    fontWeight: "bold",
-    textAlign: "center",
-    top: 100,
-  },
-  gameOverContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
 });
 
 export default styles;
