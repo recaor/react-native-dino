@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "white",
   },
   gameContainer: {
     position: "absolute",
@@ -11,6 +11,12 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+  },
+  scoreText: {
+    position: "absolute",
+    top: 15,
+    right: 30,
+    fontSize: 20,
   },
 });
 

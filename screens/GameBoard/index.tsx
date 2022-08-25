@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Image, StatusBar, Text, View } from "react-native";
+import { StatusBar, Text, View } from "react-native";
 import { GameEngine } from "react-native-game-engine";
 
 import styles from "./styles";
@@ -33,7 +33,7 @@ const GameBoard = () => {
       >
         <StatusBar hidden={true} />
       </GameEngine>
-      {running ? <Text>{score}</Text> : <Text>Game Over</Text>}
+      <Text style={styles.scoreText}>{score}</Text>
     </View>
   );
 };
