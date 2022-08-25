@@ -1,14 +1,18 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 40,
+    marginBottom: 30,
+  },
   startButton: {
-    alignItems: "center",
+    width: 150,
+    borderColor: "red",
+    borderRadius: 30,
     justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: "black",
+    alignItems: "center",
+    backgroundColor: "green",
+    paddingVertical: 10,
   },
   text: {
     fontSize: 16,
@@ -18,8 +22,21 @@ const styles = StyleSheet.create({
   },
   welcomeAnimation: {
     flexDirection: "column",
-    width: 300,
-    height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  animationView: {
+    width: 235,
+    height: 159,
+    marginBottom: 30,
+  },
+  animationImage: {
+    width: "100%",
+    height: "100%",
+  },
+  startText: {
+    color: "white",
+    fontSize: 20,
   },
 });
 

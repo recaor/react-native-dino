@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, Image, Text, TouchableOpacity, View } from "react-native";
 import * as ScreenOrientation from "expo-screen-orientation";
 
 import styles from "./style";
 import { DimensionsContext } from "../../contexts/DimensionsContext";
-import ImageSequences from "../../components/ImageSequences";
-import { WelcomeAnimation } from "../../assets/animations/WelcomeAnimation";
+import { JumpingAnimation } from "../../assets/animations/JumpingAnimation";
 
 const Dashboard = ({ navigation }) => {
   const { width, height } = useContext(DimensionsContext);
@@ -28,15 +27,20 @@ const Dashboard = ({ navigation }) => {
       }}
     >
       <View style={styles.welcomeAnimation}>
-        <View style={{ width: 335, height: 259 }}>
-          <ImageSequences images={WelcomeAnimation} speed={500} />
+        <Text style={styles.title}>Dino Game</Text>
+        <View style={styles.animationView}>
+          <Image
+            source={JumpingAnimation}
+            resizeMode="contain"
+            style={styles.animationImage}
+          />
         </View>
-        <Button
-          title="Start Game"
-          color="orange"
+        <TouchableOpacity
           style={styles.startButton}
           onPress={toggleOrientation}
-        />
+        >
+          <Text style={styles.startText}>START</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
