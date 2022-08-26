@@ -19,7 +19,7 @@ const Floor = (props: { size: any; body: any; color: any }) => {
         width: width,
         height: height,
         backgroundColor: color || "pink",
-        opacity: 0.5,
+        opacity: 0.1,
       }}
     />
   );

@@ -38,7 +38,7 @@ const GameBoard = () => {
       <GameEngine
         style={styles.gameContainer}
         systems={systems}
-        entities={entities(width, height)}
+        entities={entities()}
         onEvent={onEvent}
         running={running}
       >
