@@ -3,7 +3,10 @@ import { StatusBar, Image, Text, View } from "react-native";
 import { GameEngine } from "react-native-game-engine";
 
 import styles from "./styles";
+import systems from "./systems";
+import entities from "./entities";
 import { DimensionsContext } from "../../contexts/DimensionsContext";
+
 const backgroundImage = require("../../assets/background.png");
 
 const GameBoard = () => {
@@ -34,6 +37,8 @@ const GameBoard = () => {
       />
       <GameEngine
         style={styles.gameContainer}
+        systems={systems}
+        entities={entities(width, height)}
         onEvent={onEvent}
         running={running}
       >
