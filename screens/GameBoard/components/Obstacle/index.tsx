@@ -30,15 +30,13 @@ const Obstacle = (props) => {
   } else {
     return (
       <Image
-        style={[
-          {
-            position: "absolute",
-            left: x,
-            top: y,
-            width: width,
-            height: height,
-          },
-        ]}
+        style={{
+          position: "absolute",
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+        }}
         source={bigStone}
         resizeMode="stretch"
       />

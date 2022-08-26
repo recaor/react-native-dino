@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { Image } from "react-native";
 import Matter from "matter-js";
+import { JumpingAnimation } from "../../../../assets/animations/JumpingAnimation";
 
 const Character = (props: { size: any; body: any; color: any }) => {
   const { size, body, color } = props;
@@ -11,15 +12,18 @@ const Character = (props: { size: any; body: any; color: any }) => {
   const y = body.position.y;
 
   return (
-    <View
-      style={{
-        position: "absolute",
-        left: x,
-        top: y,
-        width: width,
-        height: height,
-        backgroundColor: color || "pink",
-      }}
+    <Image
+      style={[
+        {
+          position: "absolute",
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+        },
+      ]}
+      source={JumpingAnimation}
+      resizeMode="stretch"
     />
   );
 };
