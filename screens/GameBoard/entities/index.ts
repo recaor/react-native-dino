@@ -21,7 +21,7 @@ Matter.Common.isElement = () => false;
 export default () => {
   let engine = Matter.Engine.create({ enableSleeping: false });
   let world = engine.world;
-  world.gravity.y = 0.002;
+  world.gravity.y = 0.02;
 
   return {
     physics: { engine: engine, world: world },
@@ -29,7 +29,7 @@ export default () => {
       world,
       "black",
       { x: 50, y: height / 2 },
-      { height: 80, width: 120 }
+      { height: 80, width: 100 }
     ),
     Floor: Floor(
       world,
@@ -46,13 +46,13 @@ export default () => {
     Obstacle2: Obstacle(
       world,
       "big",
-      { x: width + 680, y: OBSTACLE2_Y },
+      { x: width + 780, y: OBSTACLE2_Y },
       { height: BIG_OBSTACLE_HEIGHT, width: BIG_OBSTACLE_WIDTH }
     ),
     Obstacle3: Obstacle(
       world,
       "small",
-      { x: width + 880, y: OBSTACLE1_Y },
+      { x: width + 1100, y: OBSTACLE1_Y },
       { height: SMALL_OBSTACLE_HEIGHT, width: SMALL_OBSTACLE_WIDTH }
     ),
   };

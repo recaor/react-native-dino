@@ -54,7 +54,7 @@ const UpdateObstacle = (entities, { time, dispatch }) => {
       );
     }
 
-    Matter.Body.translate(entities["Obstacle" + i].body, { x: -14, y: 0 });
+    Matter.Body.translate(entities["Obstacle" + i].body, { x: -17, y: 0 });
     Matter.Engine.update(engine, time.delta);
   }
 
