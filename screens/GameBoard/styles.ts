@@ -5,6 +5,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
+  backgroundImage: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    top: 0,
+    left: 0,
+  },
   gameContainer: {
     position: "absolute",
     top: 0,

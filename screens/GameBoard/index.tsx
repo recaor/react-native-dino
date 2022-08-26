@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { StatusBar, Text, View } from "react-native";
+import { StatusBar, Image, Text, View } from "react-native";
 import { GameEngine } from "react-native-game-engine";
 
 import styles from "./styles";
 import { DimensionsContext } from "../../contexts/DimensionsContext";
+const backgroundImage = require("../../assets/background.png");
 
 const GameBoard = () => {
   const { width, height } = useContext(DimensionsContext);
@@ -26,6 +27,11 @@ const GameBoard = () => {
 
   return (
     <View style={styles.container}>
+      <Image
+        style={styles.backgroundImage}
+        resizeMode="stretch"
+        source={backgroundImage}
+      />
       <GameEngine
         style={styles.gameContainer}
         onEvent={onEvent}
