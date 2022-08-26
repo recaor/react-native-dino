@@ -1,5 +1,6 @@
 import Matter from "matter-js";
 import { Dimensions } from "react-native";
+import Character from "../components/Character";
 
 import Floor from "../components/Floor";
 import Obstacle from "../components/Obstacle";
@@ -20,15 +21,21 @@ Matter.Common.isElement = () => false;
 export default () => {
   let engine = Matter.Engine.create({ enableSleeping: false });
   let world = engine.world;
-  world.gravity.y = 0.1;
+  world.gravity.y = 0.002;
 
   return {
     physics: { engine: engine, world: world },
+    Character: Character(
+      world,
+      "black",
+      { x: 0, y: height / 2 },
+      { height: 60, width: 60 }
+    ),
     Floor: Floor(
       world,
       "white",
       { x: 0, y: FLOOR_Y },
-      { height: 20, width: width }
+      { height: 60, width: width }
     ),
     Obstacle1: Obstacle(
       world,

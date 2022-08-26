@@ -2,7 +2,7 @@ import React from "react";
 import { View, Image } from "react-native";
 import Matter from "matter-js";
 
-const Floor = (props: { size: any; body: any; color: any }) => {
+const Character = (props: { size: any; body: any; color: any }) => {
   const { size, body, color } = props;
 
   const width = size[0];
@@ -19,26 +19,24 @@ const Floor = (props: { size: any; body: any; color: any }) => {
         width: width,
         height: height,
         backgroundColor: color || "pink",
-        opacity: 0,
       }}
     />
   );
 };
 
 export default (world, color, pos, size) => {
-  const initialFloor = Matter.Bodies.rectangle(
+  const initialCharacter = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
     size.width,
-    size.height,
-    { isStatic: true }
+    size.height
   );
-  Matter.World.add(world, [initialFloor]);
+  Matter.World.add(world, [initialCharacter]);
 
   return {
-    body: initialFloor,
+    body: initialCharacter,
     size: [size.width, size.height],
     color: color,
-    renderer: Floor,
+    renderer: Character,
   };
 };
