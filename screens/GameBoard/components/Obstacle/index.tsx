@@ -52,7 +52,7 @@ export default (world, type, pos, size) => {
     pos.y,
     size.width,
     size.height,
-    { isStatic: true, friction: 1 }
+    { isStatic: true, friction: 1, label: "obstacle" }
   );
   Matter.World.add(world, [initialObstacle]);
 

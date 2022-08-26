@@ -31,7 +31,7 @@ export default (world, color, pos, size) => {
     pos.y,
     size.width,
     size.height,
-    { isStatic: true }
+    { isStatic: true, label: "floor" }
   );
   Matter.World.add(world, [initialFloor]);
 

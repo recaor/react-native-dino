@@ -16,7 +16,7 @@ const GameBoard = () => {
   const [score, setScore] = useState(0);
 
   const onEvent = (e: { type: string }) => {
-    if (e.type === "gameOver") {
+    if (e.type === "game_over") {
       setRunning(false);
     } else if (e.type === "score") {
       setScore((prev) => prev + 1);

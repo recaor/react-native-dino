@@ -29,7 +29,8 @@ export default (world, color, pos, size) => {
     pos.x,
     pos.y,
     size.width,
-    size.height
+    size.height,
+    { label: "character" }
   );
   Matter.World.add(world, [initialCharacter]);
 
