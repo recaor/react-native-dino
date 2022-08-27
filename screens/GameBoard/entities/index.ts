@@ -9,8 +9,7 @@ import {
   BIG_OBSTACLE_HEIGHT,
   BIG_OBSTACLE_WIDTH,
   FLOOR_Y,
-  FRUIT_HEIGHT,
-  FRUIT_WIDTH,
+  FRUIT_RADIUS,
   SMALL_OBSTACLE_HEIGHT,
   SMALL_OBSTACLE_WIDTH,
 } from "../utils/constants";
@@ -59,7 +58,7 @@ export default () => {
     Fruit: Fruit(
       world,
       { x: width - 100, y: height / 2 },
-      { height: FRUIT_HEIGHT, width: FRUIT_WIDTH }
+      { height: FRUIT_RADIUS, width: FRUIT_RADIUS }
     ),
   };
 };

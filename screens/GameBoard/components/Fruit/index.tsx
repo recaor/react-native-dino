@@ -26,16 +26,11 @@ const Fruit = (props) => {
 };
 
 export default (world, pos, size) => {
-  const initialFruit = Matter.Bodies.rectangle(
-    pos.x,
-    pos.y,
-    size.height,
-    size.width,
-    {
-      label: "fruit",
-      isStatic: true,
-    }
-  );
+  const initialFruit = Matter.Bodies.circle(pos.x, pos.y, size.width, {
+    label: "fruit",
+    isSensor: true,
+    isStatic: true,
+  });
   Matter.World.add(world, [initialFruit]);
 
   return {
