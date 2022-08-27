@@ -8,8 +8,8 @@ const bigStone = require("../../../../assets/stone.png");
 const Obstacle = (props) => {
   const width = props.size[0];
   const height = props.size[1];
-  const x = props.body.position.x;
-  const y = props.body.position.y;
+  const x = props.body.position.x - width / 2;
+  const y = props.body.position.y - height / 2;
 
   if (props.type === "small") {
     return (
@@ -45,13 +45,9 @@ const Obstacle = (props) => {
 };
 
 export default (world, type, pos, size) => {
-  const initialObstacle = Matter.Bodies.rectangle(
-    pos.x,
-    pos.y,
-    size.width,
-    size.height,
-    { isStatic: true, label: "obstacle" }
-  );
+  const initialObstacle = Matter.Bodies.rectangle(pos.x, pos.y, 10, 10, {
+    label: "obstacle",
+  });
   Matter.World.add(world, [initialObstacle]);
 
   return {

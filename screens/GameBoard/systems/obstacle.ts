@@ -4,8 +4,6 @@ import { getRandom } from "../utils/random";
 import {
   BIG_OBSTACLE_HEIGHT,
   BIG_OBSTACLE_WIDTH,
-  OBSTACLE1_Y,
-  OBSTACLE2_Y,
   OBSTACLE_MIN_DISTANCE,
   OBSTACLE_PIPE_RANGE,
   SMALL_OBSTACLE_HEIGHT,
@@ -13,7 +11,7 @@ import {
 } from "../utils/constants";
 import Obstacle from "../components/Obstacle";
 
-const { width, height } = Dimensions.get("screen");
+const { height } = Dimensions.get("screen");
 
 const UpdateObstacle = (entities, { time, dispatch }) => {
   let engine = entities.physics.engine;
@@ -36,9 +34,6 @@ const UpdateObstacle = (entities, { time, dispatch }) => {
           OBSTACLE_MIN_DISTANCE,
           OBSTACLE_MIN_DISTANCE + OBSTACLE_PIPE_RANGE
         );
-
-      const newObstacleY =
-        newObstacleType === "small" ? OBSTACLE1_Y : OBSTACLE2_Y;
       const newObstacleWidth =
         newObstacleType === "small" ? SMALL_OBSTACLE_WIDTH : BIG_OBSTACLE_WIDTH;
       const newObstacleHeight =
@@ -49,7 +44,7 @@ const UpdateObstacle = (entities, { time, dispatch }) => {
       entities["Obstacle" + i] = Obstacle(
         world,
         newObstacleType,
-        { x: newObstacleX, y: newObstacleY },
+        { x: newObstacleX, y: -height },
         { height: newObstacleHeight, width: newObstacleWidth }
       );
     }

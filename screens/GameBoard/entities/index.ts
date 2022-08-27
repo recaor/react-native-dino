@@ -8,8 +8,6 @@ import {
   BIG_OBSTACLE_HEIGHT,
   BIG_OBSTACLE_WIDTH,
   FLOOR_Y,
-  OBSTACLE1_Y,
-  OBSTACLE2_Y,
   SMALL_OBSTACLE_HEIGHT,
   SMALL_OBSTACLE_WIDTH,
 } from "../utils/constants";
@@ -21,38 +19,38 @@ Matter.Common.isElement = () => false;
 export default () => {
   let engine = Matter.Engine.create({ enableSleeping: false });
   let world = engine.world;
-  world.gravity.y = 0.02;
+  world.gravity.y = 0.015;
 
   return {
     physics: { engine: engine, world: world },
     Character: Character(
       world,
       "black",
-      { x: 50, y: -height },
-      { height: 80, width: 100 }
+      { x: 150, y: -height },
+      { height: 80, width: 10 }
     ),
     Floor: Floor(
       world,
       "white",
       { x: 0, y: FLOOR_Y },
-      { height: 60, width: width }
+      { height: 60, width: 4000 }
     ),
     Obstacle1: Obstacle(
       world,
       "small",
-      { x: width + 380, y: OBSTACLE1_Y },
+      { x: width - 180, y: -height },
       { height: SMALL_OBSTACLE_HEIGHT, width: SMALL_OBSTACLE_WIDTH }
     ),
     Obstacle2: Obstacle(
       world,
       "big",
-      { x: width + 780, y: OBSTACLE2_Y },
+      { x: width + 780, y: -height },
       { height: BIG_OBSTACLE_HEIGHT, width: BIG_OBSTACLE_WIDTH }
     ),
     Obstacle3: Obstacle(
       world,
       "small",
-      { x: width + 1100, y: OBSTACLE1_Y },
+      { x: width + 1100, y: -height },
       { height: SMALL_OBSTACLE_HEIGHT, width: SMALL_OBSTACLE_WIDTH }
     ),
   };

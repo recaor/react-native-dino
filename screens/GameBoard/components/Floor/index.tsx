@@ -7,8 +7,8 @@ const Floor = (props: { size: any; body: any; color: any }) => {
 
   const width = size[0];
   const height = size[1];
-  const x = body.position.x;
-  const y = body.position.y;
+  const x = body.position.x - width / 2;
+  const y = body.position.y - height / 2;
 
   return (
     <View
@@ -19,7 +19,7 @@ const Floor = (props: { size: any; body: any; color: any }) => {
         width: width,
         height: height,
         backgroundColor: color || "pink",
-        opacity: 0,
+        opacity: 0.5,
       }}
     />
   );

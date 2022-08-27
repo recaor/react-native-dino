@@ -7,13 +7,10 @@ const Physics = (entities, { time, dispatch }) => {
   Matter.Events.on(engine, "collisionStart", (event) => {
     const collisionA = event.pairs[0].bodyA.label;
     const collisionB = event.pairs[0].bodyB.label;
-    if (
-      !(
-        (collisionA === "character" && collisionB === "floor") ||
-        (collisionA === "floor" && collisionB === "character")
-      )
-    )
+    if (collisionB === "floor" || collisionA === "floor") {
+    } else {
       dispatch({ type: "game_over" });
+    }
   });
 
   return entities;

@@ -7,7 +7,7 @@ const UpdateCharacter = (entities, { touches, time }) => {
     .forEach((t) => {
       Matter.Body.setVelocity(entities.Character.body, {
         x: entities.Character.body.velocity.x,
-        y: -12,
+        y: -8,
       });
     });
   Matter.Engine.update(engine, time.delta);

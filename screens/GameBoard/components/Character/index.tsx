@@ -8,8 +8,8 @@ const Character = (props: { size: any; body: any; color: any }) => {
 
   const width = size[0];
   const height = size[1];
-  const x = body.position.x;
-  const y = body.position.y;
+  const x = body.position.x - width / 2;
+  const y = body.position.y - height / 2;
 
   return (
     <View
@@ -35,7 +35,7 @@ export default (world, color, pos, size) => {
     pos.y,
     size.width,
     size.height,
-    { label: "character", frictionAir: 0.000001 }
+    { label: "character", frictionAir: 0 }
   );
   Matter.World.add(world, [initialCharacter]);
 
