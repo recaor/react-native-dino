@@ -53,7 +53,7 @@ export default () => {
     ),
     Fruit: Fruit(
       world,
-      { x: width + 300, y: height / 2 - 50 },
+      { x: width + 300, y: height / 2 - 10 },
       { height: FRUIT_RADIUS, width: FRUIT_RADIUS }
     ),
   };
