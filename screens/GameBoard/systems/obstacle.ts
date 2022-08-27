@@ -1,5 +1,6 @@
 import { Dimensions } from "react-native";
 import Matter from "matter-js";
+import { TimeUpdate } from "react-native-game-engine";
 
 import { getRandom } from "../utils/random";
 import Obstacle from "../components/Obstacle";
@@ -14,7 +15,16 @@ import {
 
 const { height } = Dimensions.get("screen");
 
-const UpdateObstacle = (entities, { time }) => {
+const UpdateObstacle = (
+  entities: {
+    [x: string]: { body: Matter.Body };
+    physics: any;
+    Obstacle1: any;
+    Obstacle2: any;
+    Obstacle3: any;
+  },
+  { time }: { time: TimeUpdate }
+) => {
   let engine = entities.physics.engine;
   let world = entities.physics.world;
 

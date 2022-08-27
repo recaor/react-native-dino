@@ -1,11 +1,15 @@
 import Matter from "matter-js";
 import { Dimensions } from "react-native";
+import { TimeUpdate } from "react-native-game-engine";
 
 import { getRandom } from "../utils/random";
 
 const { width } = Dimensions.get("screen");
 
-const UpdateFruit = (entities, { time }) => {
+const UpdateFruit = (
+  entities: { [x: string]: { body: Matter.Body }; physics: any },
+  { time }: { time: TimeUpdate }
+) => {
   let engine = entities.physics.engine;
 
   // Fruit element translation instead of random generation

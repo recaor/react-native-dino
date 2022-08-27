@@ -1,5 +1,6 @@
 import Matter from "matter-js";
 import { Dimensions } from "react-native";
+import { TimeUpdate } from "react-native-game-engine";
 
 import { getRandom } from "../utils/random";
 import Character from "../components/Character";
@@ -7,11 +8,24 @@ import { runningAnimation } from "../../../assets/animations/runningAnimation";
 
 const { width } = Dimensions.get("screen");
 
+type GameEngineEvents = {
+  touches: Array<TouchEvent>;
+  dispatch: (event: any) => void;
+  time: TimeUpdate;
+};
+
 let isFlying = false;
 let collisionNo = 0;
 let characterImageNo = 0;
 
-const UpdateCharacter = (entities, { dispatch, touches, time }) => {
+const UpdateCharacter = (
+  entities: {
+    [x: string]: { body: Matter.Body };
+    physics: any;
+    Character: { body: Matter.Body };
+  },
+  { dispatch, touches, time }: GameEngineEvents
+) => {
   if (entities["Fruit"].body.position.x > width) collisionNo = 0;
 
   const engine = entities.physics.engine;
