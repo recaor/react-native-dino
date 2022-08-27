@@ -13,6 +13,7 @@ import {
   SMALL_OBSTACLE_HEIGHT,
   SMALL_OBSTACLE_WIDTH,
 } from "../utils/constants";
+import { runningAnimation } from "../../../assets/animations/runningAnimation";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -29,7 +30,8 @@ export default () => {
       world,
       "black",
       { x: 150, y: -height },
-      { height: 30, width: 10 }
+      { height: 30, width: 10 },
+      runningAnimation[0]
     ),
     Floor: Floor(
       world,

@@ -1,10 +1,8 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { Image } from "react-native";
 import Matter from "matter-js";
-import { JumpingAnimation } from "../../../../assets/animations/JumpingAnimation";
-
-const Character = (props: { size: any; body: any; color: any }) => {
-  const { size, body, color } = props;
+const Character = (props: { size: any; body: any; color: any; image: any }) => {
+  const { size, body, color, image } = props;
 
   const width = size[0];
   const height = size[1];
@@ -12,24 +10,23 @@ const Character = (props: { size: any; body: any; color: any }) => {
   const y = body.position.y - height / 2;
 
   return (
-    <View
+    <Image
       style={[
         {
           position: "absolute",
-          left: x,
-          top: y,
-          width: width,
-          height: height,
-          backgroundColor: "black",
+          left: x - 80,
+          top: y - 20,
+          width: 100,
+          height: 50,
         },
       ]}
-      // source={JumpingAnimation}
-      // resizeMode="stretch"
+      source={image}
+      resizeMode="stretch"
     />
   );
 };
 
-export default (world, color, pos, size) => {
+export default (world, color, pos, size, image) => {
   const initialCharacter = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -43,6 +40,7 @@ export default (world, color, pos, size) => {
     body: initialCharacter,
     size: [size.width, size.height],
     color: color,
+    image,
     renderer: Character,
   };
 };
