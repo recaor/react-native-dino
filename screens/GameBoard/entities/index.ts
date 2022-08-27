@@ -3,11 +3,14 @@ import { Dimensions } from "react-native";
 import Character from "../components/Character";
 
 import Floor from "../components/Floor";
+import Fruit from "../components/Fruit";
 import Obstacle from "../components/Obstacle";
 import {
   BIG_OBSTACLE_HEIGHT,
   BIG_OBSTACLE_WIDTH,
   FLOOR_Y,
+  FRUIT_HEIGHT,
+  FRUIT_WIDTH,
   SMALL_OBSTACLE_HEIGHT,
   SMALL_OBSTACLE_WIDTH,
 } from "../utils/constants";
@@ -52,6 +55,11 @@ export default () => {
       "small",
       { x: width + 1100, y: -height },
       { height: SMALL_OBSTACLE_HEIGHT, width: SMALL_OBSTACLE_WIDTH }
+    ),
+    Fruit: Fruit(
+      world,
+      { x: width - 100, y: height / 2 },
+      { height: FRUIT_HEIGHT, width: FRUIT_WIDTH }
     ),
   };
 };

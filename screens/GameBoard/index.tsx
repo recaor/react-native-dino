@@ -23,11 +23,6 @@ const GameBoard = () => {
     }
   };
 
-  const restart = () => {
-    setRunning(true);
-    setScore(0);
-  };
-
   return (
     <View style={styles.container}>
       <Image

@@ -9,3 +9,5 @@ export const SMALL_OBSTACLE_WIDTH = 50;
 export const SMALL_OBSTACLE_HEIGHT = 25;
 export const OBSTACLE_PIPE_RANGE = 500;
 export const OBSTACLE_MIN_DISTANCE = 350;
+export const FRUIT_WIDTH = 50;
+export const FRUIT_HEIGHT = 60;

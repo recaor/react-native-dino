@@ -1,5 +1,8 @@
 import Matter from "matter-js";
+import { Dimensions } from "react-native";
+import { getRandom } from "../utils/random";
 
+const { width } = Dimensions.get("screen");
 let isFlying = false;
 
 const UpdateCharacter = (entities, { dispatch, touches, time }) => {
@@ -27,11 +30,17 @@ const UpdateCharacter = (entities, { dispatch, touches, time }) => {
     ) {
       isFlying = false;
     } else if (
-      (collisionB === "floor" && collisionA === "obstacle") ||
-      (collisionA === "floor" && collisionB === "obstacle")
+      (collisionB === "character" && collisionA === "obstacle") ||
+      (collisionA === "character" && collisionB === "obstacle")
     ) {
-    } else {
       dispatch({ type: "game_over" });
+    } else if (
+      (collisionB === "character" && collisionA === "fruit") ||
+      (collisionA === "character" && collisionB === "fruit")
+    ) {
+      const newPosition = getRandom(width + 200, width + 1500);
+      Matter.Body.translate(entities["Fruit"].body, { x: newPosition, y: 0 });
+      dispatch({ type: "score" });
     }
   });
 
