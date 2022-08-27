@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 15,
     right: 30,
-    fontSize: 20,
+    fontSize: 30,
+    color: "red",
   },
 });
 
