@@ -38,7 +38,7 @@ export default () => {
     Obstacle1: Obstacle(
       world,
       "small",
-      { x: width - 180, y: -height },
+      { x: width + 480, y: -height },
       { height: SMALL_OBSTACLE_HEIGHT, width: SMALL_OBSTACLE_WIDTH }
     ),
     Obstacle2: Obstacle(
