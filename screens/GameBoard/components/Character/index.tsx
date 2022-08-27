@@ -35,7 +35,7 @@ export default (world, color, pos, size) => {
     pos.y,
     size.width,
     size.height,
-    { label: "character" }
+    { label: "character", frictionAir: 0.000001 }
   );
   Matter.World.add(world, [initialCharacter]);
 

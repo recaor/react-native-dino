@@ -28,7 +28,7 @@ export default () => {
     Character: Character(
       world,
       "black",
-      { x: 50, y: height / 2 },
+      { x: 50, y: -height },
       { height: 80, width: 100 }
     ),
     Floor: Floor(
