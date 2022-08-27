@@ -5,7 +5,13 @@ import Matter from "matter-js";
 const smallStone = require("../../../../assets/stone.png");
 const bigStone = require("../../../../assets/stone.png");
 
-const Obstacle = (props) => {
+type PropsType = {
+  size: number[];
+  body: Matter.Body;
+  type: string;
+};
+
+const Obstacle = (props: PropsType) => {
   const width = props.size[0];
   const height = props.size[1];
   const x = props.body.position.x - width / 2;
@@ -44,7 +50,12 @@ const Obstacle = (props) => {
   }
 };
 
-export default (world, type, pos, size) => {
+export default (
+  world: Matter.World,
+  type: any,
+  pos: { x: number; y: number },
+  size: { width: number; height: number }
+) => {
   const initialObstacle = Matter.Bodies.rectangle(pos.x, pos.y, 10, 20, {
     label: "obstacle",
   });
@@ -54,6 +65,6 @@ export default (world, type, pos, size) => {
     body: initialObstacle,
     size: [size.width, size.height],
     type,
-    renderer: <Obstacle />,
+    renderer: Obstacle,
   };
 };

@@ -1,8 +1,14 @@
 import React from "react";
-import { Image } from "react-native";
+import { Image, ImageSourcePropType } from "react-native";
 import Matter from "matter-js";
 
-const Character = (props: { size: any; body: any; image: any }) => {
+type PropsType = {
+  size: number[];
+  body: Matter.Body;
+  image: ImageSourcePropType;
+};
+
+const Character = (props: PropsType) => {
   const { size, body, image } = props;
 
   const width = size[0];
@@ -27,7 +33,12 @@ const Character = (props: { size: any; body: any; image: any }) => {
   );
 };
 
-export default (world, pos, size, image) => {
+export default (
+  world: Matter.World,
+  pos: { x: number; y: number },
+  size: { width: number; height: number },
+  image: ImageSourcePropType
+) => {
   const initialCharacter = Matter.Bodies.rectangle(
     pos.x,
     pos.y,

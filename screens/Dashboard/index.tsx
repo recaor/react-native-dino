@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Button, Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import * as ScreenOrientation from "expo-screen-orientation";
 
 import styles from "./style";

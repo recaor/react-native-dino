@@ -2,7 +2,12 @@ import React from "react";
 import { View } from "react-native";
 import Matter from "matter-js";
 
-const Floor = (props: { size: any; body: any }) => {
+type PropsType = {
+  size: number[];
+  body: Matter.Body;
+};
+
+const Floor = (props: PropsType) => {
   const { size, body } = props;
 
   const width = size[0];
@@ -24,7 +29,11 @@ const Floor = (props: { size: any; body: any }) => {
   );
 };
 
-export default (world, pos, size) => {
+export default (
+  world: Matter.World,
+  pos: { x: number; y: number },
+  size: { width: number; height: number }
+) => {
   const initialFloor = Matter.Bodies.rectangle(
     pos.x,
     pos.y,

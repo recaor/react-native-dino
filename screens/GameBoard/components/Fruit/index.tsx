@@ -4,7 +4,12 @@ import Matter from "matter-js";
 
 const fruit = require("../../../../assets/fruit.png");
 
-const Fruit = (props) => {
+type PropsType = {
+  size: number[];
+  body: Matter.Body;
+};
+
+const Fruit = (props: PropsType) => {
   const width = props.size[0];
   const height = props.size[1];
   const x = props.body.position.x - width / 2;
@@ -25,7 +30,11 @@ const Fruit = (props) => {
   );
 };
 
-export default (world, pos, size) => {
+export default (
+  world: Matter.World,
+  pos: { x: number; y: number },
+  size: { width: number; height: number }
+) => {
   const initialFruit = Matter.Bodies.circle(pos.x, pos.y, size.width, {
     label: "fruit",
     isSensor: true,
@@ -36,6 +45,6 @@ export default (world, pos, size) => {
   return {
     body: initialFruit,
     size: [size.width, size.height],
-    renderer: <Fruit />,
+    renderer: Fruit,
   };
 };
