@@ -29,7 +29,7 @@ export default () => {
       world,
       "black",
       { x: 150, y: -height },
-      { height: 80, width: 10 }
+      { height: 30, width: 10 }
     ),
     Floor: Floor(
       world,
@@ -57,7 +57,7 @@ export default () => {
     ),
     Fruit: Fruit(
       world,
-      { x: width - 100, y: height / 2 },
+      { x: width - 100, y: height / 2 - 50 },
       { height: FRUIT_RADIUS, width: FRUIT_RADIUS }
     ),
   };
