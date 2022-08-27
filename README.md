@@ -11,8 +11,5 @@
 ## Development details
 
 - To build the `dino` game, we used `matter-js` and `react-native-game-engine`.
-- Currently, there is no the suitable npm for the fast image process. So we just used `Image` from 'react-native`. 
-  We need to fix this problem soon. :)
-
-
-
+- Currently, there is no the suitable npm for the fast image process. So we just used `Image` from 'react-native`.
+  We need to fix this problem soon.
