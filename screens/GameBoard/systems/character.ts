@@ -1,10 +1,12 @@
 import Matter from "matter-js";
 import { Dimensions } from "react-native";
-import { runningAnimation } from "../../../assets/animations/runningAnimation";
-import Character from "../components/Character";
+
 import { getRandom } from "../utils/random";
+import Character from "../components/Character";
+import { runningAnimation } from "../../../assets/animations/runningAnimation";
 
 const { width } = Dimensions.get("screen");
+
 let isFlying = false;
 let collisionNo = 0;
 let characterImageNo = 0;
@@ -16,13 +18,12 @@ const UpdateCharacter = (entities, { dispatch, touches, time }) => {
   let world = entities.physics.world;
 
   characterImageNo++;
-
+  // Character Animation
   if ([0, 6].includes(characterImageNo % 12) && !isFlying) {
     const newY = entities["Character"].body.position.y;
     Matter.World.remove(world, entities["Character"].body);
     entities["Character"] = Character(
       world,
-      "black",
       { x: 150, y: newY },
       { height: 30, width: 10 },
       runningAnimation[(characterImageNo % 12) / 6]
@@ -30,8 +31,8 @@ const UpdateCharacter = (entities, { dispatch, touches, time }) => {
   }
 
   touches
-    .filter((t) => t.type === "press")
-    .forEach((t) => {
+    .filter((t: { type: string }) => t.type === "press")
+    .forEach(() => {
       if (!isFlying) {
         Matter.Body.setVelocity(entities.Character.body, {
           x: entities.Character.body.velocity.x,
@@ -58,6 +59,8 @@ const UpdateCharacter = (entities, { dispatch, touches, time }) => {
     ) {
       dispatch({ type: "game_over" });
     }
+
+    // Calculate score
     if (
       (collisionB === "character" &&
         collisionA === "fruit" &&

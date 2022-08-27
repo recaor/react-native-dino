@@ -10,7 +10,7 @@ import { DimensionsContext } from "../../contexts/DimensionsContext";
 const backgroundImage = require("../../assets/background.png");
 
 const GameBoard = () => {
-  const { width, height } = useContext(DimensionsContext);
+  const { width } = useContext(DimensionsContext);
 
   const [running, setRunning] = useState(true);
   const [gameEngine, setGameEngine] = useState(null);
@@ -58,42 +58,17 @@ const GameBoard = () => {
             borderRadius: 30,
           }}
         >
-          <Text
-            style={{
-              fontSize: 30,
-              fontWeight: "bold",
-              color: "red",
-              marginBottom: 20,
-            }}
-          >
-            GAME OVER
-          </Text>
-          <Text
-            style={{
-              fontSize: 25,
-              fontWeight: "bold",
-              color: "red",
-              marginBottom: 15,
-            }}
-          >
-            Score: {score}
-          </Text>
+          <Text style={styles.gameOverText}>GAME OVER</Text>
+          <Text style={styles.scoreTextOnGameOver}>Score: {score}</Text>
           <TouchableOpacity
-            style={{
-              backgroundColor: "green",
-              paddingHorizontal: 30,
-              paddingVertical: 10,
-              borderRadius: 10,
-            }}
+            style={styles.touchPadGameOver}
             onPress={() => {
               setScore(0);
               setRunning(true);
               gameEngine.swap(entities());
             }}
           >
-            <Text style={{ fontWeight: "bold", color: "white", fontSize: 20 }}>
-              RESTART
-            </Text>
+            <Text style={styles.restartText}>RESTART</Text>
           </TouchableOpacity>
         </View>
       ) : null}

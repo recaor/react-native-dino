@@ -1,6 +1,6 @@
 import { Dimensions } from "react-native";
 
-const { width, height } = Dimensions.get("screen");
+const { height } = Dimensions.get("screen");
 
 export const FLOOR_Y = height - 60;
 export const BIG_OBSTACLE_WIDTH = 70;

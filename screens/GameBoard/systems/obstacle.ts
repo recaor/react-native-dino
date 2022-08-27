@@ -1,6 +1,8 @@
 import { Dimensions } from "react-native";
 import Matter from "matter-js";
+
 import { getRandom } from "../utils/random";
+import Obstacle from "../components/Obstacle";
 import {
   BIG_OBSTACLE_HEIGHT,
   BIG_OBSTACLE_WIDTH,
@@ -9,13 +11,14 @@ import {
   SMALL_OBSTACLE_HEIGHT,
   SMALL_OBSTACLE_WIDTH,
 } from "../utils/constants";
-import Obstacle from "../components/Obstacle";
 
 const { height } = Dimensions.get("screen");
 
-const UpdateObstacle = (entities, { time, dispatch }) => {
+const UpdateObstacle = (entities, { time }) => {
   let engine = entities.physics.engine;
   let world = entities.physics.world;
+
+  // Obstacle Random Generation
   let highestX = [
     entities.Obstacle1.body.position.x,
     entities.Obstacle2.body.position.x,
@@ -26,6 +29,7 @@ const UpdateObstacle = (entities, { time, dispatch }) => {
     if (entities["Obstacle" + i].body.position.x < -80) {
       //Remove the old obstacle
       Matter.World.remove(world, entities["Obstacle" + i].body);
+
       // Create new obstacle
       const newObstacleType = !!getRandom(0, 1) ? "small" : "big";
       const newObstacleX =
@@ -34,8 +38,10 @@ const UpdateObstacle = (entities, { time, dispatch }) => {
           OBSTACLE_MIN_DISTANCE,
           OBSTACLE_MIN_DISTANCE + OBSTACLE_PIPE_RANGE
         );
+
       const newObstacleWidth =
         newObstacleType === "small" ? SMALL_OBSTACLE_WIDTH : BIG_OBSTACLE_WIDTH;
+
       const newObstacleHeight =
         newObstacleType === "small"
           ? SMALL_OBSTACLE_HEIGHT

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { Image } from "react-native";
 import Matter from "matter-js";
 
 const smallStone = require("../../../../assets/stone.png");

@@ -1,8 +1,9 @@
 import React from "react";
 import { Image } from "react-native";
 import Matter from "matter-js";
-const Character = (props: { size: any; body: any; color: any; image: any }) => {
-  const { size, body, color, image } = props;
+
+const Character = (props: { size: any; body: any; image: any }) => {
+  const { size, body, image } = props;
 
   const width = size[0];
   const height = size[1];
@@ -26,7 +27,7 @@ const Character = (props: { size: any; body: any; color: any; image: any }) => {
   );
 };
 
-export default (world, color, pos, size, image) => {
+export default (world, pos, size, image) => {
   const initialCharacter = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -39,7 +40,6 @@ export default (world, color, pos, size, image) => {
   return {
     body: initialCharacter,
     size: [size.width, size.height],
-    color: color,
     image,
     renderer: Character,
   };

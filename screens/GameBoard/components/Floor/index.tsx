@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View } from "react-native";
 import Matter from "matter-js";
 
-const Floor = (props: { size: any; body: any; color: any }) => {
-  const { size, body, color } = props;
+const Floor = (props: { size: any; body: any }) => {
+  const { size, body } = props;
 
   const width = size[0];
   const height = size[1];
@@ -18,14 +18,13 @@ const Floor = (props: { size: any; body: any; color: any }) => {
         top: y,
         width: width,
         height: height,
-        backgroundColor: color || "pink",
         opacity: 0,
       }}
     />
   );
 };
 
-export default (world, color, pos, size) => {
+export default (world, pos, size) => {
   const initialFloor = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -38,7 +37,6 @@ export default (world, color, pos, size) => {
   return {
     body: initialFloor,
     size: [size.width, size.height],
-    color: color,
     renderer: Floor,
   };
 };
